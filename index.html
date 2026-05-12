@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farris Games - Play 500+ Free Browser Games</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-gamepad"></i> Farris Games
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#games" class="nav-link">Games</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#leaderboard" class="nav-link">Leaderboard</a>
+                </li>
+                <li class="nav-item">
+                    <button id="darkModeBtn" class="nav-link dark-mode-btn">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button id="soundToggleBtn" class="nav-link sound-toggle-btn">
+                        <i class="fas fa-volume-up"></i>
+                    </button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Farris Games</h1>
+            <p>Play 500+ Free Browser Games - No Downloads Required</p>
+            <button class="btn btn-primary" onclick="document.getElementById('games').scrollIntoView({behavior: 'smooth'})">
+                Start Playing
+            </button>
+        </div>
+        <div class="hero-background">
+            <div class="game-icon">🎮</div>
+            <div class="game-icon">🎯</div>
+            <div class="game-icon">🐍</div>
+            <div class="game-icon">🧠</div>
+            <div class="game-icon">🎲</div>
+        </div>
+    </section>
+
+    <!-- Featured Games Section -->
+    <section id="games" class="featured-games">
+        <h2>Featured Games</h2>
+        
+        <div class="game-grid">
+            <!-- Tic Tac Toe -->
+            <div class="game-card" onclick="navigateToGame('tictactoe')">
+                <div class="game-icon-large">⭕</div>
+                <h3>Tic Tac Toe</h3>
+                <p>Classic strategy game. Beat the AI!</p>
+                <div class="difficulty-badge">Easy</div>
+                <button class="btn btn-secondary">Play Now</button>
+            </div>
+
+            <!-- Snake -->
+            <div class="game-card" onclick="navigateToGame('snake')">
+                <div class="game-icon-large">🐍</div>
+                <h3>Snake</h3>
+                <p>Eat food and grow your snake!</p>
+                <div class="difficulty-badge">Medium</div>
+                <button class="btn btn-secondary">Play Now</button>
+            </div>
+
+            <!-- Memory Matching -->
+            <div class="game-card" onclick="navigateToGame('memory')">
+                <div class="game-icon-large">🧠</div>
+                <h3>Memory Match</h3>
+                <p>Test your memory skills!</p>
+                <div class="difficulty-badge">Medium</div>
+                <button class="btn btn-secondary">Play Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Games Section -->
+    <section id="all-games" class="all-games">
+        <h2>All Games (500+)</h2>
+        <div class="search-filter">
+            <input type="text" id="gameSearch" placeholder="Search games...">
+            <select id="categoryFilter">
+                <option value="all">All Categories</option>
+                <option value="puzzle">Puzzle</option>
+                <option value="action">Action</option>
+                <option value="strategy">Strategy</option>
+                <option value="classic">Classic</option>
+                <option value="arcade">Arcade</option>
+                <option value="brain">Brain Training</option>
+            </select>
+        </div>
+        <div id="gamesContainer" class="games-container"></div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section id="leaderboard" class="leaderboard">
+        <h2>Leaderboard</h2>
+        <div class="leaderboard-container">
+            <div class="leaderboard-category">
+                <h3>Snake High Scores</h3>
+                <ul id="snakeLeaderboard" class="leaderboard-list"></ul>
+            </div>
+            <div class="leaderboard-category">
+                <h3>Memory Matching Best Times</h3>
+                <ul id="memoryLeaderboard" class="leaderboard-list"></ul>
+            </div>
+            <div class="leaderboard-category">
+                <h3>Tic Tac Toe Wins</h3>
+                <ul id="tictactoeLeaderboard" class="leaderboard-list"></ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Farris Games. All rights reserved.</p>
+            <p>Made with <i class="fas fa-heart"></i> by <a href="https://github.com/farrismaida9-droid">Farris Maida</a></p>
+        </div>
+    </footer>
+
+    <!-- Game Modals -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="gameContainer"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="games/tictactoe/tictactoe.js"></script>
+    <script src="games/snake/snake.js"></script>
+    <script src="games/memory/memory.js"></script>
+    <script src="games/games-data.js"></script>
+</body>
+</html>
